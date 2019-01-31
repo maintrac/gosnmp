@@ -613,7 +613,9 @@ func parseLength(bytes []byte) (length int, cursor int) {
 // that are assigned in a hierarchy.
 func parseObjectIdentifier(bytes []byte) (s []int, err error) {
 	if len(bytes) == 0 {
-		err = fmt.Errorf("zero length OBJECT IDENTIFIER")
+		s = make([]int, 2)
+		s[0] = 0
+		s[1] = 0
 		return
 	}
 
